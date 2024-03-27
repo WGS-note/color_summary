@@ -2,30 +2,6 @@
 # @author: wangguisen
 # @Time: 2023/11/16 16:41
 # @File: color_extract.py
-'''
-+ 一阶段检测图片提取色系，返回其对应的embedding表示。
-1. 对图片按块进行查找，顺序为自左到右、自上到下。比如块大小为8*8，取这个块的mean代表该块的颜色，维度为RGB三维。
-   > 配色度量方式：RGB、HSV、YUV、HSVcone
-2. 和140个质心分布计算距离（最接近的），比如这个块颜色离第6个近，那它就属于第6个质心。
-3. 统计质心出现次数的直方图和饼图。
-4. 最后返回的140位向量是: 质心出现的占比。(定长140)
-
-+ 色系概述返回top
-1. 得到配色方案在输入图片中出现的占比，忽略占比为0的，记为centroid_proportion；
-2. 初始化类：
-  a. 质心数量：C = len(centroid_proportion)，定义簇心数组；
-  b. 全局损失：$loss = a * C + E_{color}$，其中：
-    ⅰ. $C$表示簇心数量，某簇心$c_j$的值为两两簇心的加权平均：$c_j = \frac{\sum e_i x_i}{\sum e_i}$
-    ⅱ. $E_{color}$代表样本点到簇心的距离误差，表示为：$E_{color} = \sum_{j} \sum_{i ∈ j} e_i || x_i - c_j ||_2^2$；
-    ⅲ. $E_{color} = \sum_j \sum_{i ∈ j} e_i* \sqrt{ (x_i - c_j)^2}$
-3. while C>1：
-  a. for-for 两两计算；
-    ⅰ. 计算新质心；
-    ⅱ. 合并新质心；
-    ⅲ. 计算合并后的损失；
-    ⅳ. 取损失变化最小的作为这一轮的合并结果；
-返回：[{'prob': .4f, 'name': {'en': , 'zh_cn': }, 'RGB':}, {}]
-'''
 import numpy as np
 import time
 import matplotlib.pyplot as plt
