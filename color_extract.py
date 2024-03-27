@@ -14,8 +14,8 @@ from typing import List
 import os
 
 '''   配色方案   '''
-WEBCOLOR_NAME = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath('__file__')), './assets/colors.csv'), usecols=[0, 1, 2, 3])  # id | 颜色名称en | 颜色名称zh | HEX
-WEBCOLORS = cv2.imread(os.path.join(os.path.dirname(os.path.realpath('__file__')), './assets/webcolors.png'))
+WEBCOLOR_NAME = pd.read_csv(os.path.join(os.path.dirname(__file__), './assets/colors.csv'), usecols=[0, 1, 2, 3])  # id | 颜色名称en | 颜色名称zh | HEX
+WEBCOLORS = cv2.imread(os.path.join(os.path.dirname(__file__), './assets/webcolors.png'))
 
 '''   获取每个像素点的近距离质心索引   '''
 def get_color_distance(colors, target, color_convert=partial(cv2.cvtColor, code=cv2.COLOR_BGR2HSV), blur_block=1):
