@@ -1,6 +1,6 @@
 import setuptools, os
 
-PACKAGE_NAME = 'wgs_color_summary'
+PACKAGE_NAME = 'color_summary'
 VERSION = '1.0'
 AUTHOR = 'wgs'
 EMAIL = '1151573613@qq.com'
@@ -25,7 +25,6 @@ setuptools.setup(
     packages=[
         'color_summary',
         'color_summary.assets',
-        'color_summary.color_extract',
     ],
     package_dir={'color_summary':'.'},
     package_data={'color_summary.assets': ['colors.csv', 'd7-1.jpg', 'webcolors.png']},
