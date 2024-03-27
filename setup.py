@@ -27,7 +27,7 @@ setuptools.setup(
         'color_summary.assets',
     ],
     package_dir={'color_summary':'.'},
-    package_data={'color_summary.assets': ['colors.csv', 'd7-1.jpg', 'webcolors.png']},
+    package_data={'': ['*colors.csv', '*d7-1.jpg', '*webcolors.png']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
