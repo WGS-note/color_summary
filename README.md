@@ -4,12 +4,11 @@
 ## use
 
 ```shell
-git clone https://github.com/WGS-note/color_summary.git
-cd color_summary
+pip install git+https://github.com/WGS-note/color_summary.git
 ```
 
 ```python
-from color_extract import *
+from color_summary.color_extract import *
 image = cv2.imread('./assets/d7-1.jpg')
 ```
 
